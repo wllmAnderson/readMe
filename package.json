@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/wllmAnderson/readMe/issues"
   },
-  "homepage": "https://github.com/wllmAnderson/readMe#readme"
+  "homepage": "https://github.com/wllmAnderson/readMe#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
