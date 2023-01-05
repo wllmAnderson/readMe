@@ -1,1 +1,1 @@
-{"Title":"a","Description":"a","Table of Contents":"a","Instalation":"a","Usage":"a","License":"a","Contribution":"a","Test":"a","Questions":"a"}
+{"Title":"My Readme","Description":"A professional Readme","Table of Contents":"Descriptions, Instalation, and usage","Instalation":"npm i","Usage":"to create a professional readme","License":"MIT","Contribution":"William A","Test":"No","Questions":"no"}
