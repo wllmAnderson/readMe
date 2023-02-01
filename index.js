@@ -16,9 +16,10 @@ inquirer
     name: 'Description',
 },
 {
-    type: 'input',
+    type: 'checkbox',
     message: 'list subjects for table of contents',
     name: 'Table of Contents',
+    choices: ['Installation', 'Usage', 'license', 'Contribution', 'Test', 'Question']  
 },
 {
     type: 'input',
@@ -31,9 +32,10 @@ inquirer
     name: 'Usage',
 },
 {
-    type: 'input',
-    message: 'What license is used?',
-    name: 'License',
+    type: 'checkbox', 
+    name: 'license',
+    choices: ["MIT", "GPLv3", "GPL"],
+    message: 'Pick your License.'
 },
 {
     type: 'input',
@@ -41,12 +43,12 @@ inquirer
     name: 'Contribution',
 },
 {
-    type: 'input',
-    message: 'What test were run before completion?',
+    type: 'confirm',
+    message: 'Was a test run before submiting',
     name: 'Test',
 },
 {
-    type: 'input',
+    type: 'confirm',
     message: 'Any questions?',
     name: 'Questions',
 },
