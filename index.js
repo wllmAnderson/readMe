@@ -1,11 +1,46 @@
+const inquirer = require('inquirer');
+const fs = require('fs');
+const { title } = require('process');
 
-//good
-// TODO: Include packages needed for this application
-var fs = require('fs');
-var inquirer = require('inquirer');
-// TODO: Create an array of questions for user input
+const generateHTML = ({ Title, Description, TableofContents, Installation, Usage, License, Contribution, Test, Questions }) =>
+  `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="p-5 mb-4 header bg-dark">
+    <div class="container">
+      <h1 class="display-4 text-light"># ${Title}</h1>
+      <p class="lead text-light">## Description <br>
+       ${Description}.</p>
+      <ul class="list-group">
+        <li class="list-group-item"> ##Table of Contents <br>
+        ${TableofContents}</li>
+        <li class="list-group-item"> ## Installation <br>
+        ${Installation}</li>
+        <li class="list-group-item"> ## Usage <br>
+         ${Usage}</li>
+        <li class="list-group-item"> ## License <br>
+         ${License}</li>
+        <li class="list-group-item"> ## Contribution <br>
+         ${Contribution}</li>
+        <li class="list-group-item"> ## Test <br>
+         ${Test}</li>
+        <li class="list-group-item"> ## Questions <br>
+         ${Questions}</li>
+      </ul>
+    </div>
+  </header>
+</body>
+</html>`;
+
 inquirer
-  .prompt([{
+  .prompt([
+    {
     type: 'input',
     message: 'What is the title',
     name: 'Title',
@@ -18,13 +53,13 @@ inquirer
 {
     type: 'checkbox',
     message: 'list subjects for table of contents',
-    name: 'Table of Contents',
+    name: 'TableofContents',
     choices: ['Installation', 'Usage', 'license', 'Contribution', 'Test', 'Question']  
 },
 {
     type: 'input',
     message: 'How is the project installed?',
-    name: 'Instalation',
+    name: 'Installation',
 },
 {
     type: 'input',
@@ -33,7 +68,7 @@ inquirer
 },
 {
     type: 'checkbox', 
-    name: 'license',
+    name: 'License',
     choices: ["MIT", "GPLv3", "GPL"],
     message: 'Pick your License.'
 },
@@ -53,66 +88,11 @@ inquirer
     name: 'Questions',
 },
 ])
-// TODO: Create a function to write README file
-.then(answers => {
-    fs.writeFile("readme.md", JSON.stringify(answers),function (err){
-          console.log(err)
-  })})
+  .then((answers) => {
+    const htmlPageContent = generateHTML(answers);
 
-// TODO: Create a function to initialize app
-class person {
-    constructor(title, description, tableofcontents, Instalation, Usage) {
-        this.title = title;
-        this.description = description;
-        this.tableofcontents = tableofcontents;
-        this.Instalation = Instalation;
-        this.Usage = Usage;
-        this.license = license;
-        this.contribution = contribution;
-        this.test = test;
-        this.questions = questions;
-        this.introduction = () => {
-            console.log(
-                `title: ${this.title}
-         description: ${this.description}
-         tableofcontents: ${this.tableofcontents}
-         Instalation: ${this.Instalation}
-         Usage ${this.Usage}
-         
-         
-         `);
+    fs.writeFile('index.html', htmlPageContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created index.html!')
+    );
+  });
 
-        };
-    }
-};
-    
-//
-/*constructor
-    (title, description, tableofcontents, Instalation, Usage) 
-        this.title = title;
-        this.description = description;
-        this.tableofcontents = tableofcontents;
-        this.Instalation = Instalation;
-        this.Usage = Usage;
-        this.license = license;
-        this.contribution = contribution;
-        this.test = test;
-        this.questions = questions;
-        this.introduction = () => {
-            console.log(
-                `title: ${this.title}
-         description: ${this.description}
-         tableofcontents: ${this.tableofcontents}
-         Instalation: ${this.Instalation}
-         Usage ${this.Usage}`);
-        };
-        //this.init = function () {
-            //'something';
-        //};
-
-        //this.init();
-    
-;
-
-// Function call to initialize app
-    //console.log(constructor); */
