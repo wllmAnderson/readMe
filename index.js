@@ -9,7 +9,7 @@ const generateHTML = ({ Title, Description, TableofContents, Installation, Usage
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-  <title>Document</title>
+  <title>My Readme Generator</title>
 </head>
 <body>
   <header class="p-5 mb-4 header bg-dark">
@@ -95,4 +95,4 @@ inquirer
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
   });
-
+ 
